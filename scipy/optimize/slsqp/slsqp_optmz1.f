@@ -441,7 +441,6 @@ C   LINE SEARCH WITH AN L1-TESTFUNCTION
       line = 0
       alpha = one
       IF (iexact.EQ.1) GOTO 210
-
 C   INEXACT LINESEARCH
 
   190     line = line + 1
@@ -450,9 +449,10 @@ C   INEXACT LINESEARCH
           CALL dcopy_(n, x0, 1, x, 1)
           CALL daxpy_sl(n, one, s, 1, x, 1)
           mode = 1
-          GO TO 330
+
           print*, 'line:', line
           print*, 'h1:', h1, 'h3:', h3
+          GO TO 330
   200         IF (h1.LE.h3/ten .OR. line.GT.10) GO TO 240
               alpha = MAX(h3/(two*(h3-h1)),alfmin)
               GO TO 190

@@ -3,13 +3,14 @@
 ########################################################################
 
 # Compiler settings - Can be customized.
-CC = g++
-CXXFLAGS = -std=c++11 -Wall
+CC = gfortran
+CPP = gfortran -cpp
+CXXFLAGS = -g -Wall
 LDFLAGS = 
 
 # Makefile settings - Can be customized.
 APPNAME = myapp
-EXT = .cpp
+EXT = .f
 SRCDIR = .
 OBJDIR = .
 

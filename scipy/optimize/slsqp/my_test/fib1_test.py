@@ -1,4 +1,4 @@
 import numpy as np
-import fib1 
+import fib1
 
-print(fib1.__doc__)
+print(fib1.fib.__doc__)

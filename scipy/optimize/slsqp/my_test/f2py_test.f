@@ -5,6 +5,7 @@ C           CALCULATE FIRST N FIBONACCI NUMBERS
 C
             INTEGER N 
             REAL*8 A(N)
+CF2PY       intent(out) A            
             DO I=1, N 
                 IF (I.EQ.1) THEN
                     A(I) = 0.0d0

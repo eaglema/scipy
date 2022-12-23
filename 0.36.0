@@ -1,0 +1,173 @@
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: C:\Program_files_myj\anaconda3\envs\scipy-dev
+
+  added / updated specs:
+    - doit
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    doit-0.33.1                |   py39haa95532_0         142 KB
+    ------------------------------------------------------------
+                                           Total:         142 KB
+
+The following NEW packages will be INSTALLED:
+
+  cloudpickle        pkgs/main/noarch::cloudpickle-2.0.0-pyhd3eb1b0_0 
+  doit               pkgs/main/win-64::doit-0.33.1-py39haa95532_0 
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages
+doit-0.33.1          | 142 KB    |            |   0% doit-0.33.1          | 142 KB    | #1         |  11% doit-0.33.1          | 142 KB    | ########## | 100% doit-0.33.1          | 142 KB    | ########## | 100%                                                      
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+
+C:\Workfiles\scipy>set "LIB=" 
+
+C:\Workfiles\scipy>set "CPATH=" 
+
+C:\Workfiles\scipy>set "_LIB=" 
+
+C:\Workfiles\scipy>set "_CPATH=" 
+
+C:\Workfiles\scipy>if "C:\Program_files_myj\anaconda3\envs\scipy-dev" == "" set "LIB=;\Library\lib" 
+
+C:\Workfiles\scipy>if "C:\Program_files_myj\anaconda3\envs\scipy-dev" == "" set "CPATH=;\Library\include" 
+
+C:\Workfiles\scipy>if not "C:\Program_files_myj\anaconda3\envs\scipy-dev" == "" set "LIB=;C:\Program_files_myj\anaconda3\envs\scipy-dev\Library\lib" 
+
+C:\Workfiles\scipy>if not "C:\Program_files_myj\anaconda3\envs\scipy-dev" == "" set "CPATH=;C:\Program_files_myj\anaconda3\envs\scipy-dev\Library\include" 
+
+C:\Workfiles\scipy>SET DISTUTILS_USE_SDK=1 
+
+C:\Workfiles\scipy>SET MSSdk=1 
+
+C:\Workfiles\scipy>SET "VS_VERSION=16.0" 
+
+C:\Workfiles\scipy>SET "VS_MAJOR=16" 
+
+C:\Workfiles\scipy>SET "VS_YEAR=2019" 
+
+C:\Workfiles\scipy>set "MSYS2_ARG_CONV_EXCL=/AI;/AL;/OUT;/out" 
+
+C:\Workfiles\scipy>set "MSYS2_ENV_CONV_EXCL=CL" 
+
+C:\Workfiles\scipy>set "PY_VCRUNTIME_REDIST=\bin\vcruntime140.dll" 
+
+C:\Workfiles\scipy>set "CXX=cl.exe" 
+
+C:\Workfiles\scipy>set "CC=cl.exe" 
+
+C:\Workfiles\scipy>set "VSINSTALLDIR=" 
+
+C:\Workfiles\scipy>set "NEWER_VS_WITH_OLDER_VC=0" 
+
+C:\Workfiles\scipy>for /F "usebackq tokens=*" %i in (`vswhere.exe -nologo -products * -version [16.0,17.0) -property installationPath`) do (set "VSINSTALLDIR=%i\" ) 
+
+C:\Workfiles\scipy>if not exist "" (for /F "usebackq tokens=*" %i in (`vswhere.exe -nologo -products * -requires Microsoft.VisualStudio.ComponentGroup.VC.Tools.142.x86.x64 -property installationPath`) do (
+set "VSINSTALLDIR=%i\"  
+ set "NEWER_VS_WITH_OLDER_VC=1" 
+) ) 
+
+C:\Workfiles\scipy>if not exist "" (for /F "usebackq tokens=*" %i in (`vswhere.exe -nologo -products * -requires Microsoft.VisualStudio.Component.VC.v142.x86.x64 -property installationPath`) do (
+set "VSINSTALLDIR=%i\"  
+ set "NEWER_VS_WITH_OLDER_VC=1" 
+) ) 
+
+C:\Workfiles\scipy>if not exist "" (set "VSINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\" ) 
+
+C:\Workfiles\scipy>if not exist "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\" (set "VSINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\" ) 
+
+C:\Workfiles\scipy>if not exist "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\" (set "VSINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\" ) 
+
+C:\Workfiles\scipy>if not exist "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\" (set "VSINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\" ) 
+
+C:\Workfiles\scipy>IF NOT "" == "" (
+set "INCLUDE=;"  
+ set "LIB=;;C:\Program_files_myj\anaconda3\envs\scipy-dev\Library\lib"  
+ set "CMAKE_PREFIX_PATH=;" 
+) 
+
+C:\Workfiles\scipy>call :GetWin10SdkDir 
+
+C:\Workfiles\scipy>call :GetWin10SdkDirHelper HKLM\SOFTWARE\Wow6432Node  1>nul 2>&1 
+
+C:\Workfiles\scipy>if errorlevel 1 call :GetWin10SdkDirHelper HKCU\SOFTWARE\Wow6432Node  1>nul 2>&1 
+
+C:\Workfiles\scipy>if errorlevel 1 call :GetWin10SdkDirHelper HKLM\SOFTWARE  1>nul 2>&1 
+
+C:\Workfiles\scipy>if errorlevel 1 call :GetWin10SdkDirHelper HKCU\SOFTWARE  1>nul 2>&1 
+
+C:\Workfiles\scipy>if errorlevel 1 exit /B 1 
+
+C:\Workfiles\scipy>exit /B 0 
+
+C:\Workfiles\scipy>for /F %i in ('dir /ON /B "\include\10.*"') DO (SET WindowsSDKVer=%~i ) 
+
+C:\Workfiles\scipy>if errorlevel 1 (echo "Didn't find any windows 10 SDK. I'm not sure if things will work, but let's try..." )  else (echo Windows SDK version found as: "" ) 
+Windows SDK version found as: ""
+
+C:\Workfiles\scipy>IF "win-64" == "win-64" (
+set "BITS=64"  
+ set "CMAKE_PLAT=x64" 
+)  ELSE (
+set "BITS=32"  
+ set "CMAKE_PLAT=Win32" 
+) 
+
+C:\Workfiles\scipy>IF 2019 GEQ 2019 (
+set "CMAKE_GEN=Visual Studio 16 2019"  
+ set "USE_NEW_CMAKE_GEN_SYNTAX=1" 
+)  ELSE (
+IF "win-64" == "win-64" (set "CMAKE_GEN=Visual Studio 16 2019 Win64" )  else (set "CMAKE_GEN=Visual Studio 16 2019" )  
+ set "USE_NEW_CMAKE_GEN_SYNTAX=0" 
+) 
+
+C:\Workfiles\scipy>echo "NEWER_VS_WITH_OLDER_VC=0" 
+"NEWER_VS_WITH_OLDER_VC=0"
+
+C:\Workfiles\scipy>if "0" == "1" (set /p NEWER_VS= 0<"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\\VC\Auxiliary\Build\Microsoft.VCToolsVersion.default.txt" ) 
+
+C:\Workfiles\scipy>type "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\\VC\Auxiliary\Build\Microsoft.VCToolsVersion.default.txt" 
+
+C:\Workfiles\scipy>dir "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\\VC\Redist\MSVC\" 
+
+C:\Workfiles\scipy>if "0" == "1" (
+echo ""  
+ if "~0,4" == "14.2" (set "CMAKE_GEN=Visual Studio 16 2019" )  else (set "CMAKE_GEN=Visual Studio 17 2022" )  
+ set "USE_NEW_CMAKE_GEN_SYNTAX=1" 
+) 
+
+C:\Workfiles\scipy>IF "Visual Studio 16 2019" == "" SET "CMAKE_GENERATOR=Visual Studio 16 2019" 
+
+C:\Workfiles\scipy>IF "1" == "1" (
+IF "x64" == "" SET "CMAKE_GENERATOR_PLATFORM=x64"  
+ IF "v142" == "" SET "CMAKE_GENERATOR_TOOLSET=v142" 
+) 
+
+C:\Workfiles\scipy>pushd C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\ 
+
+C:\Workfiles\scipy>CALL "VC\Auxiliary\Build\vcvars64.bat" -vcvars_ver=14.29  
+
+C:\Workfiles\scipy>popd
+
+C:\Workfiles\scipy>call :GetWin10SdkDirHelper HKLM\SOFTWARE\Wow6432Node  1>nul 2>&1 
+
+C:\Workfiles\scipy>if errorlevel 1 call :GetWin10SdkDirHelper HKCU\SOFTWARE\Wow6432Node  1>nul 2>&1 
+
+C:\Workfiles\scipy>if errorlevel 1 call :GetWin10SdkDirHelper HKLM\SOFTWARE  1>nul 2>&1 
+
+C:\Workfiles\scipy>if errorlevel 1 call :GetWin10SdkDirHelper HKCU\SOFTWARE  1>nul 2>&1 
+
+C:\Workfiles\scipy>if errorlevel 1 exit /B 1 
+
+C:\Workfiles\scipy>exit /B 0 

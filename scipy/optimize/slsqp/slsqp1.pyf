@@ -1,0 +1,277 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module slsqp1 ! in 
+    interface  ! in :slsqp1
+        subroutine slsqp(m,meq,la,n,x,xl,xu,f,c,g,a,acc,iter,mode,w,l_w,jw,l_jw,alpha,f0,gs,h1,h2,h3,h4,t,t0,tol,iexact,incons,ireset,itermx,line,n1,n2,n3) ! in :slsqp1:slsqp_optmz1.f
+            integer :: m
+            integer :: meq
+            integer, optional,check(shape(c, 0) == la),depend(c) :: la=shape(c, 0)
+            integer, optional,check(shape(x, 0) == n),depend(x) :: n=shape(x, 0)
+            double precision dimension(n) :: x
+            double precision dimension(n),depend(n) :: xl
+            double precision dimension(n),depend(n) :: xu
+            double precision :: f
+            double precision dimension(la) :: c
+            double precision dimension(1 + n),depend(n) :: g
+            double precision dimension(la,1 + n),depend(n,la) :: a
+            double precision :: acc
+            integer :: iter
+            integer :: mode
+            double precision dimension(l_w) :: w
+            integer, optional,check(shape(w, 0) == l_w),depend(w) :: l_w=shape(w, 0)
+            integer dimension(l_jw) :: jw
+            integer, optional,check(shape(jw, 0) == l_jw),depend(jw) :: l_jw=shape(jw, 0)
+            double precision :: alpha
+            double precision :: f0
+            double precision :: gs
+            double precision :: h1
+            double precision :: h2
+            double precision :: h3
+            double precision :: h4
+            double precision :: t
+            double precision :: t0
+            double precision :: tol
+            integer :: iexact
+            integer :: incons
+            integer :: ireset
+            integer :: itermx
+            integer :: line
+            integer :: n1
+            integer :: n2
+            integer :: n3
+        end subroutine slsqp
+        subroutine slsqpb(m,meq,la,n,x,xl,xu,f,c,g,a,acc,iter,mode,r,l,x0,mu,s,u,v,w,iw,alpha,f0,gs,h1,h2,h3,h4,t,t0,tol,iexact,incons,ireset,itermx,line,n1,n2,n3) ! in :slsqp1:slsqp_optmz1.f
+            integer, required,intent(in) :: m
+            integer :: meq
+            integer, optional,check(shape(c, 0) == la),depend(c) :: la=shape(c, 0)
+            integer, optional,check(shape(x, 0) == n),depend(x) :: n=shape(x, 0)
+            double precision dimension(n) :: x
+            double precision dimension(n),depend(n) :: xl
+            double precision dimension(n),depend(n) :: xu
+            double precision :: f
+            double precision dimension(la) :: c
+            double precision dimension(1 + n),depend(n) :: g
+            double precision dimension(la,1 + n),depend(n,la) :: a
+            double precision :: acc
+            integer :: iter
+            integer :: mode
+            double precision dimension(2 + m + 2 * n),check(shape(r, 0) == 2 + m + 2 * n),depend(n,m) :: r
+            double precision dimension((2 + 3 * n + n * n) / 2),depend(n) :: l
+            double precision dimension(n),depend(n) :: x0
+            double precision dimension(la),depend(la) :: mu
+            double precision dimension(1 + n),depend(n) :: s
+            double precision dimension(1 + n),depend(n) :: u
+            double precision dimension(1 + n),depend(n) :: v
+            double precision dimension(*) :: w
+            integer dimension(*) :: iw
+            double precision :: alpha
+            double precision :: f0
+            double precision :: gs
+            double precision :: h1
+            double precision :: h2
+            double precision :: h3
+            double precision :: h4
+            double precision :: t
+            double precision :: t0
+            double precision :: tol
+            integer :: iexact
+            integer :: incons
+            integer :: ireset
+            integer :: itermx
+            integer :: line
+            integer :: n1
+            integer :: n2
+            integer :: n3
+        end subroutine slsqpb
+        subroutine lsq(m,meq,n,nl,la,l,g,a,b,xl,xu,x,y,w,jw,mode) ! in :slsqp1:slsqp_optmz1.f
+            integer, required,intent(in) :: m
+            integer :: meq
+            integer, optional,check(shape(g, 0) == n),depend(g) :: n=shape(g, 0)
+            integer, optional,check(shape(l, 0) == nl),depend(l) :: nl=shape(l, 0)
+            integer, optional,check(shape(a, 0) == la),depend(a) :: la=shape(a, 0)
+            double precision dimension(nl) :: l
+            double precision dimension(n) :: g
+            double precision dimension(la,n),depend(n) :: a
+            double precision dimension(la),depend(la) :: b
+            double precision dimension(n),depend(n) :: xl
+            double precision dimension(n),depend(n) :: xu
+            double precision dimension(n),depend(n) :: x
+            double precision dimension(m + 2 * n),check(shape(y, 0) == m + 2 * n),depend(n,m) :: y
+            double precision dimension(*) :: w
+            integer dimension(*) :: jw
+            integer :: mode
+        end subroutine lsq
+        subroutine lsei(c,d,e,f,g,h,lc,mc,le,me,lg,mg,n,x,xnrm,w,jw,mode) ! in :slsqp1:slsqp_optmz1.f
+            double precision dimension(lc,n) :: c
+            double precision dimension(lc),depend(lc) :: d
+            double precision dimension(le,n),depend(n) :: e
+            double precision dimension(le),depend(le) :: f
+            double precision dimension(lg,n),depend(n) :: g
+            double precision dimension(lg),depend(lg) :: h
+            integer, optional,check(shape(c, 0) == lc),depend(c) :: lc=shape(c, 0)
+            integer :: mc
+            integer, optional,check(shape(e, 0) == le),depend(e) :: le=shape(e, 0)
+            integer :: me
+            integer, optional,check(shape(g, 0) == lg),depend(g) :: lg=shape(g, 0)
+            integer :: mg
+            integer, optional,check(shape(c, 1) == n),depend(c) :: n=shape(c, 1)
+            double precision dimension(n),depend(n) :: x
+            double precision :: xnrm
+            double precision dimension(*) :: w
+            integer dimension(*) :: jw
+            integer :: mode
+        end subroutine lsei
+        subroutine lsi(e,f,g,h,le,me,lg,mg,n,x,xnorm,w,jw,mode) ! in :slsqp1:slsqp_optmz1.f
+            double precision dimension(le,n) :: e
+            double precision dimension(le),depend(le) :: f
+            double precision dimension(lg,n),depend(n) :: g
+            double precision dimension(lg),depend(lg) :: h
+            integer, optional,check(shape(e, 0) == le),depend(e) :: le=shape(e, 0)
+            integer :: me
+            integer, optional,check(shape(g, 0) == lg),depend(g) :: lg=shape(g, 0)
+            integer :: mg
+            integer, optional,check(shape(e, 1) == n),depend(e) :: n=shape(e, 1)
+            double precision dimension(n),depend(n) :: x
+            double precision :: xnorm
+            double precision dimension(*) :: w
+            integer dimension(lg),depend(lg) :: jw
+            integer :: mode
+        end subroutine lsi
+        subroutine ldp(g,mg,m,n,h,x,xnorm,w,index_bn,mode) ! in :slsqp1:slsqp_optmz1.f
+            double precision dimension(mg,n) :: g
+            integer, optional,check(shape(g, 0) == mg),depend(g) :: mg=shape(g, 0)
+            integer, optional,check(shape(h, 0) == m),depend(h) :: m=shape(h, 0)
+            integer, optional,check(shape(g, 1) == n),depend(g) :: n=shape(g, 1)
+            double precision dimension(m) :: h
+            double precision dimension(n),depend(n) :: x
+            double precision :: xnorm
+            double precision dimension(*) :: w
+            integer dimension(m),depend(m) :: index_bn
+            integer :: mode
+        end subroutine ldp
+        subroutine nnls(a,mda,m,n,b,x,rnorm,w,z,index_bn,mode) ! in :slsqp1:slsqp_optmz1.f
+            double precision dimension(mda,n) :: a
+            integer, optional,check(shape(a, 0) == mda),depend(a) :: mda=shape(a, 0)
+            integer, optional,check(shape(b, 0) == m),depend(b) :: m=shape(b, 0)
+            integer, optional,check(shape(a, 1) == n),depend(a) :: n=shape(a, 1)
+            double precision dimension(m) :: b
+            double precision dimension(n),depend(n) :: x
+            double precision :: rnorm
+            double precision dimension(n),depend(n) :: w
+            double precision dimension(m),depend(m) :: z
+            integer dimension(n),depend(n) :: index_bn
+            integer :: mode
+        end subroutine nnls
+        subroutine hfti(a,mda,m,n,b,mdb,nb,tau,krank,rnorm,h,g,ip) ! in :slsqp1:slsqp_optmz1.f
+            double precision dimension(mda,n) :: a
+            integer, optional,check(shape(a, 0) == mda),depend(a) :: mda=shape(a, 0)
+            integer :: m
+            integer, optional,check(shape(a, 1) == n),depend(a) :: n=shape(a, 1)
+            double precision dimension(mdb,nb) :: b
+            integer, optional,check(shape(b, 0) == mdb),depend(b) :: mdb=shape(b, 0)
+            integer, optional,check(shape(b, 1) == nb),depend(b) :: nb=shape(b, 1)
+            double precision :: tau
+            integer :: krank
+            double precision dimension(nb),depend(nb) :: rnorm
+            double precision dimension(n),depend(n) :: h
+            double precision dimension(n),depend(n) :: g
+            integer dimension(n),depend(n) :: ip
+        end subroutine hfti
+        subroutine h12(mode,lpivot,l1,m,u,iue,up,c,ice,icv,ncv) ! in :slsqp1:slsqp_optmz1.f
+            integer :: mode
+            integer :: lpivot
+            integer :: l1
+            integer :: m
+            double precision dimension(iue,*) :: u
+            integer, optional,check(shape(u, 0) == iue),depend(u) :: iue=shape(u, 0)
+            double precision :: up
+            double precision dimension(*) :: c
+            integer :: ice
+            integer :: icv
+            integer :: ncv
+        end subroutine h12
+        subroutine ldl(n,a,z,sigma,w) ! in :slsqp1:slsqp_optmz1.f
+            integer :: n
+            double precision dimension(*) :: a
+            double precision dimension(*) :: z
+            double precision :: sigma
+            double precision dimension(*) :: w
+        end subroutine ldl
+        function linmin(mode,ax,bx,f,tol) ! in :slsqp1:slsqp_optmz1.f
+            integer :: mode
+            double precision :: ax
+            double precision :: bx
+            double precision :: f
+            double precision :: tol
+            double precision :: linmin
+        end function linmin
+        subroutine daxpy_sl(n,da,dx,incx,dy,incy) ! in :slsqp1:slsqp_optmz1.f
+            integer :: n
+            double precision :: da
+            double precision dimension(*) :: dx
+            integer :: incx
+            double precision dimension(*) :: dy
+            integer :: incy
+        end subroutine daxpy_sl
+        subroutine dcopy_(n,dx,incx,dy,incy) ! in :slsqp1:slsqp_optmz1.f
+            integer :: n
+            double precision dimension(*) :: dx
+            integer :: incx
+            double precision dimension(*) :: dy
+            integer :: incy
+        end subroutine dcopy_
+        function ddot_sl(n,dx,incx,dy,incy) ! in :slsqp1:slsqp_optmz1.f
+            integer :: n
+            double precision dimension(*) :: dx
+            integer :: incx
+            double precision dimension(*) :: dy
+            integer :: incy
+            double precision :: ddot_sl
+        end function ddot_sl
+        function dnrm1(n,x,i,j) ! in :slsqp1:slsqp_optmz1.f
+            integer, optional,check(shape(x, 0) == n),depend(x) :: n=shape(x, 0)
+            double precision dimension(n) :: x
+            integer :: i
+            integer :: j
+            double precision :: dnrm1
+        end function dnrm1
+        function dnrm2_(n,dx,incx) ! in :slsqp1:slsqp_optmz1.f
+            integer :: n
+            double precision dimension(*) :: dx
+            integer :: incx
+            double precision :: dnrm2_
+        end function dnrm2_
+        subroutine dsrot(n,dx,incx,dy,incy,c,s) ! in :slsqp1:slsqp_optmz1.f
+            integer :: n
+            double precision dimension(*) :: dx
+            integer :: incx
+            double precision dimension(*) :: dy
+            integer :: incy
+            double precision :: c
+            double precision :: s
+        end subroutine dsrot
+        subroutine dsrotg(da,db,c,s) ! in :slsqp1:slsqp_optmz1.f
+            double precision :: da
+            double precision :: db
+            double precision :: c
+            double precision :: s
+        end subroutine dsrotg
+        subroutine dscal_sl(n,da,dx,incx) ! in :slsqp1:slsqp_optmz1.f
+            integer :: n
+            double precision :: da
+            double precision dimension(*) :: dx
+            integer :: incx
+        end subroutine dscal_sl
+        subroutine bound(n,x,xl,xu) ! in :slsqp1:slsqp_optmz1.f
+            integer, optional,check(shape(x, 0) == n),depend(x) :: n=shape(x, 0)
+            double precision dimension(n) :: x
+            double precision dimension(n),depend(n) :: xl
+            double precision dimension(n),depend(n) :: xu
+        end subroutine bound
+    end interface 
+end python module slsqp1
+
+! This file was auto-generated with f2py (version:1.23.4).
+! See:
+! https://web.archive.org/web/20140822061353/http://cens.ioc.ee/projects/f2py2e
